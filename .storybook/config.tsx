@@ -3,7 +3,7 @@ import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import { addDecorator } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import darkTheme from '../src/themes/dark';
 
 import { GlobalStyle } from '../src/App';
@@ -17,11 +17,16 @@ function loadStories() {
 configure(loadStories, module);
 
 addParameters({ options: { theme: themes.dark } });
+
+const StyledContainer = styled.div`
+  padding: 2rem;
+`;
+
 addDecorator(s => (
   <ThemeProvider theme={darkTheme}>
-    <div className="StorybookApp">
+    <StyledContainer className="StorybookApp">
       <GlobalStyle />
       {s()}
-    </div>
+    </StyledContainer>
   </ThemeProvider>
 ));

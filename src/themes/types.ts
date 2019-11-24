@@ -32,10 +32,19 @@ export interface ThemeFontSizes {
   xl6: string;
 }
 
+export interface ThemeBorderRadiuses {
+  none: string;
+  sm: string;
+  default: string;
+  lg: string;
+  full: string;
+}
+
 export interface Theme {
   colors: ThemeColors;
   fontFamilies: ThemeFontFamilies;
   fontSizes: ThemeFontSizes;
+  borderRadiuses: ThemeBorderRadiuses;
 }
 
 export default Theme;
