@@ -2,8 +2,8 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import darkTheme from './theme/dark/theme';
-import Theme from './theme/types';
+import darkTheme from './themes/dark/theme';
+import Theme from './themes/types';
 
 declare module 'styled-components' {
   export interface DefaultTheme extends Theme {}

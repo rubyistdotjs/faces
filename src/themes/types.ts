@@ -16,7 +16,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeFontFamilies {
-  sans: string[];
+  sans: string;
 }
 
 export interface ThemeFontSizes {
