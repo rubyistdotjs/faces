@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
-const App: React.FC = () => {
+import darkTheme from './theme/dark/theme';
+import Theme from './theme/types';
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
+}
+
+export const GlobalStyle = createGlobalStyle`
+  ${normalize}
+
+  body {
+    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.fontFamilies.sans};
+    background-color: ${({ theme }) => theme.colors.gray.darkest};
+  }
+`;
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div className="App">
+        <GlobalStyle />
+      </div>
+    </ThemeProvider>
   );
 }
 
